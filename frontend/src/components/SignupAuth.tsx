@@ -1,19 +1,33 @@
 import { signupType } from "@rainahaina/medium-common";
 import { ChangeEvent, useState } from "react";
 import { Authheader } from "./Authheader";
+import axios from "axios";
+import { BACKEND_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
 export const SignupAuth =({type}: {type: "signup" |"signin"})=>{
+    const navigate = useNavigate()
     const [postInputs, setpostInputs] = useState<signupType>({
         name: "",
         email: "",
         password: ""
     })
-
+    async function hitbackend(){
+        try{
+            const response = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, postInputs);
+            const jwt = response.data;
+            localStorage.setItem("token", jwt);
+            navigate('/blog');
+        }
+        catch(e){
+            alert("Wrong inputs");
+        }
+    }
     return <div className="flex flex-col h-screen bg-slate-100 justify-center">
         <div className="mx-32">
             <Authheader type="signup"/>
             <div className="my-6 flex flex-col gap-3">
-                
+
                 <LabbeledInput label = "Username" placeholder="Akash Raina..." onChange={(e)=>{
                     setpostInputs({
                         ...postInputs,
@@ -35,7 +49,7 @@ export const SignupAuth =({type}: {type: "signup" |"signin"})=>{
                     })
                 }}/>
 
-                <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2.5  mb-2 my-4">{type === "signup" ? "Sign Up" : "Sign In"}</button>
+                <button onClick={hitbackend} type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm py-2.5  mb-2 my-4">{type === "signup" ? "Sign Up" : "Sign In"}</button>
             </div>
         </div>
     </div>
