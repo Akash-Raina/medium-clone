@@ -1,4 +1,4 @@
-import { Appbar } from "../components/Appbar"
+import { Appbar } from "./Appbar"
 
 export const SingleBlogSkeleton = ()=>{
     return <>
