@@ -30,7 +30,7 @@ export const NewBlog = ()=>{
                 setTitle(e.target.value)
             }} type="text" placeholder="Title" className=" mt-2 border-l-2 w-[70%] h-16 text-4xl pl-4 focus:outline-none"/>
             <TextEditor onChange = {(e)=>{setContent(e.target.value)}}/>
-            <button onClick={hitBackend} className="bg-green-600 rounded-full w-28 h-9 text-white text-xl font-semibold">Publish</button>
+            <button onClick={hitBackend} className="bg-green-600 rounded-full w-28 h-9 text-white text-xl font-semibold hover:bg-green-700">Publish</button>
 
         </div>
     </div>  

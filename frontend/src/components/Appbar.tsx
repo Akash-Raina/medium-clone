@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { Circle } from "./BlogCard"
+import { CiCirclePlus } from "react-icons/ci";
 
 export const Appbar = ()=>{
 
@@ -9,7 +10,7 @@ export const Appbar = ()=>{
         </Link>
         <div className="flex items-center gap-8">
             <Link to = {"/create"}>
-                <div className="bg-green-700 rounded-full w-16 h-8 cursor-pointer text-center text-white text-xl font-semibold">new</div>
+                <div className="flex justify-center bg-green-600 rounded-full cursor-pointer text-white hover:bg-green-800"><CiCirclePlus size={35}/></div>
             </Link>
             <Circle name="Akash Raina" size="big"/>
         </div>

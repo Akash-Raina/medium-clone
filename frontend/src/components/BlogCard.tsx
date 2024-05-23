@@ -10,7 +10,7 @@ interface CardType {
 
 export const BlogCard = ({id, authorName, title, publishedDate, content}: CardType)=>{
     return <Link to={`/blog/${id}`}>
-        <div className=" border-b-2 cursor-pointer">
+        <div className=" border-b-2 hover:border-slate-400 cursor-pointer">
             <div className="flex gap-2 items-center pt-2">
             <Circle name={authorName}/>
             <div className="">{authorName}</div>

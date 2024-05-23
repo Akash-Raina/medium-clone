@@ -4,10 +4,10 @@ import { Circle } from "./BlogCard"
 
 export const Fullblog =({blog}: {blog:BlogType})=>{
     return <div className="flex h-screen">
-        <div className="flex flex-col w-[60%]  gap-2 px-28 pt-6">
+        <div className="flex flex-col w-[60%]  gap-2 px-12 pt-6 lg:px-28">
             <div className="font-bold text-3xl ">{blog.title}</div>
             <div className="text-slate-500 text-sm">Posted on March 24, 2024</div>
-            <div>{blog.content}</div>
+            <div className="pt-3">{blog.content}</div>
         </div>
 
         <div className="flex flex-col w-[40%] gap-3 pt-6 pr-24">
